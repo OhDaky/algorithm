@@ -1,23 +1,22 @@
 function solution(numbers, target) {
-    var answer = 0;
-    function dfs(depth, sum) {
-        if(depth === numbers.length) {
-            if(sum === target) {
-                answer += 1;
-            }
-            return;
-        }
-        dfs(depth+1, sum + numbers[depth])
-        dfs(depth+1, sum - numbers[depth])
+  var answer = 0;
+  function dfs(depth, sum) {
+    if (depth === numbers.length) {
+      if (sum === target) {
+        answer += 1;
+      }
+      return;
     }
-    
-    dfs(0,0)
-    console.log(answr)
-    return answer;
+    dfs(depth + 1, sum + numbers[depth]);
+    dfs(depth + 1, sum - numbers[depth]);
+  }
+
+  dfs(0, 0);
+  console.log(answer);
+  return answer;
 }
 
 // dfs
-
 
 const numbers1 = [1, 1, 1, 1, 1];
 const target1 = 3;
