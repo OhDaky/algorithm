@@ -3,10 +3,25 @@ function solution(N, M, lines) {
     .split(" ")
     .map((el) => Number(el))
     .sort((a, b) => a - b);
-  let max = len[len.length - 1];
-  let min = len[0];
+  let end = len[len.length - 1];
+  let start = 0;
 
-  return max;
+  let res = 0;
+  while (start <= end) {
+    sum = 0;
+    let mid = Math.ceil((start + end) / 2);
+    for (let el of len) {
+      if (el > mid) sum += el - mid;
+    }
+    if (sum < M) end = mid - 1;
+    else {
+      res = mid;
+      start = mid + 1;
+    }
+  }
+
+  console.log(res);
+  return res;
 }
 
 function binarySearch(array, start, end, target) {
