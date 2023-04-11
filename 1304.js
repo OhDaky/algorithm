@@ -1,5 +1,4 @@
 function isRight(arr) {
-  let start = arr[0];
   let cnt = 0;
   for (let i of arr) {
     if (i === "(") cnt++;
@@ -13,11 +12,8 @@ function isRight(arr) {
 function solution(str) {
   let res = [];
   const arr = str.split("");
-  const visited = new Set();
-  const graph = []; // input
   let cntStart = 0;
   let cntEnd = 0;
-  let start = arr[0];
   let u = [];
   let v = [];
 
