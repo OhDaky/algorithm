@@ -17,7 +17,7 @@ function solution(N, arr) {
     res += sum;
   }
 
-  return res + heap[0][0];
+  return 2 * res + heap[0][0];
 }
 
 console.log(solution(3, [10, 20, 40]));
