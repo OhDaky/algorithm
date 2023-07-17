@@ -1,0 +1,11 @@
+{
+  "백준 템플릿": {
+    "prefix": "btemplate",
+    "body": [
+      "const fs = require(fs);",
+      "const filePath = __dirname + /input.txt;",
+      "//   process.platform === linux? /dev/stdin",
+      "const input = fs.readFileSync(filePath).toString().split();"
+    ]
+  }
+}
