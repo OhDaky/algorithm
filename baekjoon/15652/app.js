@@ -1,24 +1,25 @@
-const readline = require("readline");
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const fs = require("fs");
+const filePath = __dirname + "/input.txt";
+//   process.platform === linux? "/dev/stdin"
+const [n, m] = fs.readFileSync(filePath).toString().split(" ").map(Number);
 
-let [N, M] = [];
+const res = [];
+const output = [];
 
-const dfs = (n, m, sequence) => {
-  if (m === 0) {
-    console.log(sequence.join(" "));
+function backtrack(depth, start) {
+  if (depth === m) {
+    output.push(res.join(" "));
     return;
   }
 
-  for (let i = n; i <= N; i++) {
-    dfs(i, m - 1, [...sequence, i]);
+  for (let i = start; i <= n; i++) {
+    if (res[res.length - 1] <= i || res.length === 0) {
+      res.push(i);
+      backtrack(depth + 1, start);
+      res.pop();
+    }
   }
-};
+}
 
-rl.on("line", (line) => {
-  [N, M] = line.split(" ").map(Number);
-}).on("close", () => {
-  dfs(1, M, []);
-});
+backtrack(0, 1);
+console.log(output.join("\n"));
