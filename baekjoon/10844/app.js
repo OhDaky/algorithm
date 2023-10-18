@@ -4,7 +4,7 @@ const filePath = __dirname + "/input.txt";
 const n = Number(fs.readFileSync(filePath).toString());
 const dp = Array.from({ length: n + 1 }, () => Array(10).fill(0));
 dp[1] = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-
+// dp[a][b] : 길이가 a일때 마지막 숫자가 b인 경우의 계단 수
 const modular = 1000000000;
 let res = 0;
 
